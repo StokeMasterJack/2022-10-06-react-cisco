@@ -1,4 +1,6 @@
 import {BackgroundColorProperty, ColorProperty} from "csstype";
+import {createContext, useContext} from "react";
+import {ensure} from "./ss-util";
 
 export type Theme = {
     primaryColor: ColorProperty,
@@ -11,3 +13,10 @@ export const fetchTheme = async (): Promise<Theme> => {
         backgroundColor: "lightgrey"
     });
 };
+
+export const ThemeCtx = createContext<Theme | null>(null);
+
+export function useTheme(): Theme {
+    const theme = useContext(ThemeCtx);
+    return ensure(theme);
+}

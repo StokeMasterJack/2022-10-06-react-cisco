@@ -2,19 +2,12 @@ import React, {useState} from "react";
 import "./App.css";
 import {Header} from "./Header";
 import {useAsync} from "./ss-react-utils";
-import {fetchTheme, Theme} from "./Theme";
+import {fetchTheme, Theme, ThemeCtx} from "./Theme";
 import {fetchUser, User, UserCtx} from "./User";
 
-
-type AppLoadedProps = {
-    theme: Theme;
-};
-
-
-const AppLoaded = ({theme}: AppLoadedProps) => {
-
+const AppLoaded = () => {
     return <div className="App">
-        <Header theme={theme}/>
+        <Header/>
     </div>;
 };
 
@@ -39,10 +32,11 @@ const App: React.FC = () => {
         deps: []
     });
 
-    //  <TContext.Provider value={t}>
     if (user !== null && theme !== null) {
         return <UserCtx.Provider value={user}>
-            <AppLoaded theme={theme}/>;
+            <ThemeCtx.Provider value={theme}>
+                <AppLoaded/>;
+            </ThemeCtx.Provider>
         </UserCtx.Provider>;
     } else {
         return <AppLoading/>;
