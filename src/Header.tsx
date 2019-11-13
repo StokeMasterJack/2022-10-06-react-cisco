@@ -5,7 +5,6 @@ import {User} from "./User";
 
 type HeaderProps = { theme: Theme, user: User };
 
-
 const HeaderInner: FC<HeaderProps> = ({theme, user}: HeaderProps) => {
 
     const {backgroundColor} = theme;

@@ -5,7 +5,7 @@ export type Theme = {
     backgroundColor: BackgroundColorProperty,
 };
 
-export const mkTheme = async (): Promise<Theme> => {
+export const fetchTheme = async (): Promise<Theme> => {
     return Promise.resolve({
         primaryColor: "blue",
         backgroundColor: "lightgrey"

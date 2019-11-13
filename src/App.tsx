@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "./App.css";
 import {Header} from "./Header";
-import {mkTheme, Theme} from "./Theme";
-import {mkUser, User} from "./User";
-
+import {useAsync} from "./ss-react-utils";
+import {ensure} from "./ss-util";
+import {fetchTheme, Theme} from "./Theme";
+import {fetchUser, User} from "./User";
 
 type AppLoadedProps = {
     theme: Theme;
@@ -20,49 +21,29 @@ const AppLoading = () => {
     return <div>Loading</div>;
 };
 
-function ensure<T>(o: T | null): T {
-    if (o === undefined || o === null) {
-        throw Error("Expecting a defined and non-null value");
-    }
-    return o;
-}
-
 const App: React.FC = () => {
 
     const [theme, setTheme] = useState<Theme | null>(null);
     const [user, setUser] = useState<User | null>(null);
 
-    useEffect(() => {
+    useAsync({
+        op: fetchTheme,
+        onSuccess: setTheme,
+        deps: []
+    });
 
-        const fetchTheme = async () => {
-            const theme = await mkTheme();
-            setTheme(theme);
-        };
+    useAsync({
+        op: fetchUser,
+        onSuccess: setUser,
+        deps: []
+    });
 
-        fetchTheme();
+    if (user !== null && theme !== null) {
+        return <AppLoaded theme={theme} user={ensure(user)}/>;
+    } else {
+        return <AppLoading/>;
+    }
 
-
-    }, []);
-
-    useEffect(() => {
-
-        const fetchUser = async () => {
-            const user = await mkUser();
-            setUser(user);
-        };
-
-        fetchUser();
-
-
-    }, []);
-
-    const fullyLoaded: boolean = theme !== null && user !== null;
-
-    return (
-        <div className="App">
-            {!fullyLoaded ? <AppLoading/> : <AppLoaded theme={ensure(theme)} user={ensure(user)}/>}
-        </div>
-    );
 };
 
 export default App;
