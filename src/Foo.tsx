@@ -27,8 +27,7 @@ export class Foo extends React.Component<FooProps, FooState> {
         // it does not have props.theme and props.user.
         // Thus, Foo's render does not have access to user and theme
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const user = this.context;
+        // const _user = this.context;
 
         const {x, y} = this.props;
         return <div>
