@@ -1,11 +1,13 @@
 import React, {FC} from "react";
 import logo from "./logo.svg";
 import {Theme} from "./Theme";
-import {User} from "./User";
+import {useUser} from "./User";
 
-type HeaderProps = { theme: Theme, user: User };
+type HeaderProps = { theme: Theme };
 
-const HeaderInner: FC<HeaderProps> = ({theme, user}: HeaderProps) => {
+const HeaderInner: FC<HeaderProps> = ({theme}: HeaderProps) => {
+
+    const user = useUser();
 
     const {backgroundColor} = theme;
 
