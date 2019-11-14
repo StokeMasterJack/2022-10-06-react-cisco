@@ -1,10 +1,10 @@
 import React from "react";
 import {BjAction} from "./blackjack";
-import {Dispatch} from "./BlackjackGame";
+import {BjDispatch} from "./BlackjackGame";
 import {Ro} from "./ss-react-utils";
 import {useTheme} from "./Theme";
 
-const BlackjackButtonsInner = ({isGameActive, dispatch}: { isGameActive: boolean, dispatch: Dispatch }) => {
+const BlackjackButtonsInner = ({isGameActive, dispatch}: { isGameActive: boolean, dispatch: BjDispatch }) => {
 
     const {backgroundColor} = useTheme();
 

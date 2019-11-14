@@ -1,11 +1,11 @@
 import React from "react";
 import {Game} from "./blackjack";
 import {BlackjackButtons} from "./BlackjackButtons";
-import {Dispatch} from "./BlackjackGame";
+import {BjDispatch} from "./BlackjackGame";
 import {HandVu} from "./HandVu";
 import {Co, Ro} from "./ss-react-utils";
 
-export const BlackjackGameVu = ({state, dispatch}: { state: Game, dispatch: Dispatch }) => {
+export const BlackjackGameVu = ({state, dispatch}: { state: Game, dispatch: BjDispatch }) => {
 
     return <Co style={{}}>
         <h1>Blackjack</h1>
