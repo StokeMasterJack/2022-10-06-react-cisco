@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/*  noinspection JSUnusedLocalSymbols */
+
 /**
  * The TypeScript "readonly" keyword can be used for:
  *   to declare readonly object properties on object type definitions
