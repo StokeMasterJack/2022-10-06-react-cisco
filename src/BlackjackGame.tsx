@@ -23,5 +23,5 @@ export const BlackjackGame: FC = () => {
     };
 
 
-    return <BlackjackGameVu state={state} dispatch={dispatch}/>;
+    return <BlackjackGameVu state={state} dispatch={dispatch}/> ;
 };

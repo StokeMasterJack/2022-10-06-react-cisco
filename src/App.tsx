@@ -46,7 +46,7 @@ const App: React.FC = () => {
     if (user !== null && theme !== null) {
         return <UserCtx.Provider value={user}>
             <ThemeCtx.Provider value={theme}>
-                <AppLoaded/>;
+                <AppLoaded/>
             </ThemeCtx.Provider>
         </UserCtx.Provider>;
     } else {

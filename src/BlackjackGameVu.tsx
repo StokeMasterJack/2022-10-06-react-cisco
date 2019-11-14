@@ -2,22 +2,23 @@ import React from "react";
 import {Game} from "./blackjack";
 import {Dispatch} from "./BlackjackGame";
 import {HandVu} from "./HandVu";
+import {Co, Ro} from "./ss-react-utils";
 
 
 export const BlackjackGameVu = ({state, dispatch}: { state: Game, dispatch: Dispatch }) => {
 
-    return <div style={{display: "flex", flexDirection: "column"}}>
+    return <Co style={{}}>
         <h1>Blackjack</h1>
-        <div style={{display: "flex", flexDirection: "row"}}>
+        <Ro style={{backgroundColor:'#EEEEEE',justifyContent:'center'}}>
             <HandVu h={state.ph}/>
             <HandVu h={state.dh}/>
-        </div>
-        <div>
+        </Ro>
+        <Ro>
             {state.msg}
-        </div>
-        <div>
-            {/*<BlackjackButtons isGameActive={state.isActive} dispatch={dispatch} />*/}
-        </div>
-    </div>;
+        </Ro>
+        <Ro>
+            {  /*<BlackjackButtons isGameActive={state.isActive} dispatch={dispatch} />*/  }
+        </Ro>
+    </Co>;
 
 };
