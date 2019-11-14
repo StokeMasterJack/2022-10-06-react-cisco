@@ -1,8 +1,12 @@
-import React from "react";
-import {BjAction} from "./blackjack";
-import {BjDispatch} from "./BlackjackGame";
-import {Ro} from "./ss-react-utils";
-import {useTheme} from "./Theme";
+import React, {CSSProperties} from 'react';
+import {BjAction} from './blackjack';
+import {BjDispatch} from './BlackjackGame';
+import {Ro} from './ss-react-utils';
+import {useTheme} from './Theme';
+
+const buttonStyle: CSSProperties = {
+    margin: '.5rem'
+};
 
 const BlackjackButtonsInner = ({isGameActive, dispatch}: { isGameActive: boolean, dispatch: BjDispatch }) => {
 
@@ -16,11 +20,11 @@ const BlackjackButtonsInner = ({isGameActive, dispatch}: { isGameActive: boolean
         dispatch(action);
     };
 
-    return <Ro style={{padding: "1rem", backgroundColor, margin: "1rem", width: "10rem", height: "2rem"}}>
+    return <Ro style={{backgroundColor}}>
 
-        <button name='deal' onClick={onClick} disabled={isGameActive}>Deal</button>
-        <button name='hit' onClick={onClick} disabled={!isGameActive}>Hit</button>
-        <button name='stay' onClick={onClick} disabled={!isGameActive}>Stay</button>
+        <button name='deal' style={buttonStyle} onClick={onClick} disabled={isGameActive}>Deal</button>
+        <button name='hit' style={buttonStyle} onClick={onClick} disabled={!isGameActive}>Hit</button>
+        <button name='stay' style={buttonStyle} onClick={onClick} disabled={!isGameActive}>Stay</button>
 
     </Ro>;
 };

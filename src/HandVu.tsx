@@ -13,7 +13,7 @@ const HandVuInner = ({h}: { h: Hand }) => {
     console.log('HandVuInner.render');
     const {backgroundColor} = useTheme();
 
-    return <Co style={{padding: "1rem", backgroundColor, margin: "1rem", width: "10rem", height: "10rem"}}>
+    return <Co style={{padding: "1rem", backgroundColor, margin: "1rem", width: "12rem", height: "10rem"}}>
         <Ro style={{fontWeight: "bold"}}>{h.name} Hand</Ro>
         <Co>
             {h.cards.map(cardToRo)}
