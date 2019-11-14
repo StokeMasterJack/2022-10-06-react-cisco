@@ -4,6 +4,7 @@ export type Op<T> = () => Promise<T>;
 export type OnSuccess<T> = (date: T) => void;
 
 
+
 export function useAsync<T>({op, onSuccess, deps}: { op: Op<T>, onSuccess: OnSuccess<T>, deps?: DependencyList }) {
 
     useEffect(() => {
@@ -30,9 +31,11 @@ export const Ro = (props: DivProps) => {
 
     const p = {...props, style: newStyle};
 
-    return <div {...p} >
-        {props.children}
-    </div>;
+    return <React.Fragment>
+        <div {...p} >
+            {props.children}
+        </div>
+    </React.Fragment>;
 };
 
 export const Co = (props: DivProps) => {
