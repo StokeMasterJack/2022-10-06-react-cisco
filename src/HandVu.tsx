@@ -4,7 +4,7 @@ import {Co, Ro} from "./ss-react-utils";
 import {useTheme} from "./Theme";
 
 function cardToRo(c: Card) {
-    return <Ro>
+    return <Ro key={c.name}>
         {c.name}
     </Ro>;
 }

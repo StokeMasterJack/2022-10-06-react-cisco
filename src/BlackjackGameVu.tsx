@@ -1,5 +1,6 @@
 import React from "react";
 import {Game} from "./blackjack";
+import {BlackjackButtons} from "./BlackjackButtons";
 import {Dispatch} from "./BlackjackGame";
 import {HandVu} from "./HandVu";
 import {Co, Ro} from "./ss-react-utils";
@@ -17,7 +18,7 @@ export const BlackjackGameVu = ({state, dispatch}: { state: Game, dispatch: Disp
             {state.msg}
         </Ro>
         <Ro>
-            {  /*<BlackjackButtons isGameActive={state.isActive} dispatch={dispatch} />*/  }
+            <BlackjackButtons isGameActive={state.isActive} dispatch={dispatch} />
         </Ro>
     </Co>;
 
