@@ -12,6 +12,7 @@ export function useAsync<T>({op, onSuccess, deps}: { op: Op<T>, onSuccess: OnSuc
         };
         doOp();
 
+        //eslint-disable-next-line
     }, deps);
 }
 
