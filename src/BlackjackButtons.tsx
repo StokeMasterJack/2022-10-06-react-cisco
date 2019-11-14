@@ -11,20 +11,17 @@ export const BlackjackButtons = ({isGameActive, dispatch}: { isGameActive: boole
 
     const onClick = (event: any) => {
         const name = event.target.name;
-        console.log("onClick: ", name);
-
         const action: BjAction = {
             type: name
         };
-
         dispatch(action);
     };
 
     return <Ro style={{padding: "1rem", backgroundColor, margin: "1rem", width: "10rem", height: "2rem"}}>
 
-        <button name='deal' onClick={onClick}>Deal</button>
-        <button name='hit' onClick={onClick}>Hit</button>
-        <button name='stay' onClick={onClick}>Stay</button>
+        <button name='deal' onClick={onClick} disabled={isGameActive}>Deal</button>
+        <button name='hit' onClick={onClick} disabled={!isGameActive}>Hit</button>
+        <button name='stay' onClick={onClick} disabled={!isGameActive}>Stay</button>
 
     </Ro>;
 };

@@ -5,7 +5,6 @@ import {Dispatch} from "./BlackjackGame";
 import {HandVu} from "./HandVu";
 import {Co, Ro} from "./ss-react-utils";
 
-
 export const BlackjackGameVu = ({state, dispatch}: { state: Game, dispatch: Dispatch }) => {
 
     return <Co style={{}}>
