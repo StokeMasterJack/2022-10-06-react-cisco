@@ -1,13 +1,24 @@
 import React, {useState} from "react";
 import "./App.css";
+import {BlackjackGame} from "./BlackjackGame";
 import {Header} from "./Header";
 import {useAsync} from "./ss-react-utils";
 import {fetchTheme, Theme, ThemeCtx} from "./Theme";
 import {fetchUser, User, UserCtx} from "./User";
 
+const PageSelector = ({page}: { page: string }) => {
+    if (page === "blackjack") {
+        return <BlackjackGame/>;
+    } else {
+        return <div>No such page: {page}</div>;
+    }
+
+};
+
 const AppLoaded = () => {
     return <div className="App">
         <Header/>
+        <PageSelector page='blackjack'/>
     </div>;
 };
 
