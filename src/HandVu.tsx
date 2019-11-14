@@ -9,17 +9,19 @@ function cardToRo(c: Card) {
     </Ro>;
 }
 
-export const HandVu = ({h}: { h: Hand }) => {
-
+const HandVuInner = ({h}: { h: Hand }) => {
+    console.log('HandVuInner.render');
     const {backgroundColor} = useTheme();
 
-    return <Co style={{padding: "1rem", backgroundColor,margin:'1rem',width:'10rem',height:'10rem'}}>
-        <Ro style={{fontWeight:'bold'}}>{h.name} Hand</Ro>
+    return <Co style={{padding: "1rem", backgroundColor, margin: "1rem", width: "10rem", height: "10rem"}}>
+        <Ro style={{fontWeight: "bold"}}>{h.name} Hand</Ro>
         <Co>
             {h.cards.map(cardToRo)}
         </Co>
-        <Ro style={{fontWeight:'bold'}}>
+        <Ro style={{fontWeight: "bold"}}>
             {h.msg}
         </Ro>
     </Co>;
 };
+
+export const HandVu = React.memo(HandVuInner);

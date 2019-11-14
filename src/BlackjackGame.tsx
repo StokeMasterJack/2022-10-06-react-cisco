@@ -1,4 +1,4 @@
-import React, {FC, useState} from "react";
+import React, {FC, useCallback, useState} from "react";
 import {BjAction, Game} from "./blackjack";
 import {BlackjackGameVu} from "./BlackjackGameVu";
 
@@ -17,11 +17,11 @@ export const BlackjackGame: FC = () => {
 
     const [state, setState] = useState<Game>(mkInitState);
 
-    const dispatch = (action: BjAction) => {
-        const newState = reducer(state, action);
-        setState(newState);
+    const dispatchInner = (action: BjAction) => {
+        setState((oldState: Game) => reducer(oldState, action));
     };
 
+    const dispatch = useCallback(dispatchInner, []);
 
-    return <BlackjackGameVu state={state} dispatch={dispatch}/> ;
+    return <BlackjackGameVu state={state} dispatch={dispatch}/>;
 };

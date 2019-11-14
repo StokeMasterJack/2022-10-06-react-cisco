@@ -4,8 +4,7 @@ import {Dispatch} from "./BlackjackGame";
 import {Ro} from "./ss-react-utils";
 import {useTheme} from "./Theme";
 
-
-export const BlackjackButtons = ({isGameActive, dispatch}: { isGameActive: boolean, dispatch: Dispatch }) => {
+const BlackjackButtonsInner = ({isGameActive, dispatch}: { isGameActive: boolean, dispatch: Dispatch }) => {
 
     const {backgroundColor} = useTheme();
 
@@ -25,3 +24,5 @@ export const BlackjackButtons = ({isGameActive, dispatch}: { isGameActive: boole
 
     </Ro>;
 };
+
+export const BlackjackButtons = React.memo(BlackjackButtonsInner);
