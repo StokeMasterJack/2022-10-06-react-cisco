@@ -1,9 +1,7 @@
-import React, {CSSProperties, DependencyList, useEffect} from "react";
+import React, {CSSProperties, DependencyList, useEffect} from 'react';
 
 export type Op<T> = () => Promise<T>;
 export type OnSuccess<T> = (date: T) => void;
-
-
 
 export function useAsync<T>({op, onSuccess, deps}: { op: Op<T>, onSuccess: OnSuccess<T>, deps?: DependencyList }) {
 
@@ -14,14 +12,13 @@ export function useAsync<T>({op, onSuccess, deps}: { op: Op<T>, onSuccess: OnSuc
         };
         doOp();
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps);
 }
 
 
 type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-const roStyle: CSSProperties = {display: "flex", flexDirection: "row"};
-const coStyle: CSSProperties = {display: "flex", flexDirection: "column"};
+const roStyle: CSSProperties = {display: 'flex', flexDirection: 'row'};
+const coStyle: CSSProperties = {display: 'flex', flexDirection: 'column'};
 
 export const Ro = (props: DivProps) => {
 
